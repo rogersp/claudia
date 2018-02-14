@@ -54,7 +54,7 @@ module.exports = function collectFiles(sourcePath, useLocalDependencies, optiona
 				fsUtil.copy(path.join(sourcePath, 'node_modules'), targetDir);
 				return Promise.resolve(targetDir);
 			} else {
-				return runNpm(targetDir, 'install --production', logger);
+				return runNpm(targetDir, 'install --production --no-package-lock', logger);
 			}
 		},
 		rewireRelativeDependencies = function (targetDir) {
