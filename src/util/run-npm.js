@@ -7,7 +7,7 @@ module.exports = function runNpm(dir, options, logger) {
 	'use strict';
 	const cwd = process.cwd(),
 		npmlog = tmppath(),
-		command = 'yarn ' + options;
+		command = (options.indexOf('pack') == 0 ? 'npm ' : 'yarn ') + options;
 	let env = process.env;
 	logger.logApiCall(command);
 	process.chdir(dir);
